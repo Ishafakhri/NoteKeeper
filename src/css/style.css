@@ -812,6 +812,12 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
+.empty-notes .material-symbols-rounded{
+  font-size: 6.8rem;
+  opacity : 0.25;
+  margin-block-end: var(--spacing-4);
+  margin-inline: auto;
+}
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
