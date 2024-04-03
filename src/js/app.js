@@ -7,7 +7,9 @@
 /**
  * Module Import
  */
-import { addEventOnElements } from './utils.js';
+import { addEventOnElements,getGreetingMsg } from "./utils.js";
+
+
 /**
  * Toggle sidebar
  */
@@ -21,3 +23,10 @@ addEventOnElements($sidebarTogglers, 'click', function () {
     $sidebar.classList.toggle('active');
     $overlay.classList.toggle('active');
 });
+
+/**
+ * Show greeting message
+ */
+const /** {HTMLElement} */ $greeting = document.querySelector('[data-greeting]');
+const /**  {number} */ currentHour = new Date().getHours();
+$greeting.textContent = getGreetingMsg(currentHour);

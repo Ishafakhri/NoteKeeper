@@ -17,7 +17,16 @@ const addEventOnElements = function ($elements, eventType, callback) {
         $element.addEventListener(eventType, callback);
     });
 }
+/**
+ * 
+ * @param {number} currentHour 
+ * @returns {string}
+ */
+const getGreetingMsg = function (currentHour) {
+    console.log("🚀 ~ getGreetingMsg ~ currentHour:", currentHour);
+}
 
 export{
-    addEventOnElements
+    addEventOnElements,
+    getGreetingMsg
 }
