@@ -5,7 +5,7 @@
 'use strict';
 
 /**
- * Module Import
+ * Module Imports
  */
 import { addEventOnElements,getGreetingMsg } from "./utils.js";
 
