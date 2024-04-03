@@ -13,9 +13,9 @@
 
 const addEventOnElements = function ($elements, eventType, callback) {
     console.log($elements);
-    // $elements.forEach($element => {
-    //     $element.addEventListener(eventType, callback);
-    // });
+    $elements.forEach($element => {
+        $element.addEventListener(eventType, callback);
+    });
 }
 
 export{

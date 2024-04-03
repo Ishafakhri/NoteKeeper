@@ -7,13 +7,13 @@
 /**
  * Module Import
  */
-import { addEventOnElements } from 'utils.js';
+import { addEventOnElements } from './utils.js';
 /**
  * Toggle sidebar
  */
 const /** {HTMLElement} */ $sidebar = document.querySelector('[data-sidebar]');
 
-const /** {Array<HTMLElement>} */ $sidebarTogglers = document.querySelector('[data-sidebar-toggler]');
+const /** {Array<HTMLElement>} */ $sidebarTogglers = document.querySelectorAll('[data-sidebar-toggler]');
 
 const /** {HTMLElement} */ $overlay = document.querySelector('[data-sidebar-overlay]');
 
