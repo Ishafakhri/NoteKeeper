@@ -7,7 +7,7 @@
 /**
  * Import
  */
-import { Tooltip } from "./Tooltip";
+import { Tooltip } from "./Tooltip.js";
 /**
  * 
  * @param {string} id 
@@ -33,7 +33,8 @@ export const NavItem = function (id, name) {
     `;
 
     // show tooltip on edit and delete button
-    
+    const /** {Array<HTMLElement>} */ $tooltipElems = $navItem.querySelectorAll('[data-tooltip]');
+    $tooltipElems.forEach($elem => Tooltip($elem));
 
     return $navItem;
 }

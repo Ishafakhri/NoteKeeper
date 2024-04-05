@@ -26,11 +26,22 @@ export const client = {
          * 
          */
         create(notebookData){
-            const /**{HTMLElement} */ $navItem = NavItem(notebookData.id, 
-                notebookData.name);
+            const /**{HTMLElement} */ $navItem = NavItem(notebookData.id, notebookData.name);
             $sidebarList.appendChild($navItem);
             activeNotebook.call($navItem);
             $notePanelTitle.textContent = notebookData.name;
+        },
+
+        read(notebookList){
+            notebookList.forEach((notebook, index) => {
+                const /** {HTMLElement} */ $navItem = NavItem(notebook.id, notebook.name);
+                
+                if(index === 0){
+                    activeNotebook.call($navItem);
+                    $notePanelTitle.textContent = notebook.name;
+                }
+                $sidebarList.appendChild($navItem);
+            });
         }
 }
 }

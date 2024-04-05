@@ -66,5 +66,18 @@ export const db = {
 
             return notebookData;
         }
-    }
+    },
+
+    get : {
+        /**
+         * @function
+         * @returns {Array<Object>}
+         */
+        notebooks(){
+            readDB();
+            return notekeeperDB.notebooks;
+        }
+    },
+    
+    
 };

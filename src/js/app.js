@@ -86,3 +86,14 @@ const createNotebook = function (event) {
         client.notebook.create(notebookData);
     }
 }
+
+/**
+ * Renders the notebook list from the database & passing to client
+ */
+
+const renderExisted = function () {
+    const /** {Array} */ notebookList = db.get.notebooks();
+    client.notebook.read(notebookList);
+}
+
+renderExisted();
