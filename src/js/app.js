@@ -8,7 +8,7 @@
  * Module Imports
  */
 import { addEventOnElements,getGreetingMsg } from "./utils.js";
-
+import { Tooltip } from "./components/Tooltip.js";
 
 /**
  * Toggle sidebar
@@ -25,8 +25,23 @@ addEventOnElements($sidebarTogglers, 'click', function () {
 });
 
 /**
+ * Initialize tooltip behavior for all DOM elemenets with data-tooltip atr
+ */
+const /** {Array<HTMLElement>} */ $tooltips = document.querySelectorAll('[data-tooltip]');
+$tooltips.forEach($elem => Tooltip($elem));
+
+
+
+
+/**
  * Show greeting message
  */
 const /** {HTMLElement} */ $greeting = document.querySelector('[data-greeting]');
 const /**  {number} */ currentHour = new Date().getHours();
 $greeting.textContent = getGreetingMsg(currentHour);
+
+/**
+ * Show current date
+ */
+const /** {HTMLElement} */ $currentDate = document.querySelector('[data-current-date]');
+$currentDate.textContent = new Date().toDateString().replace(' ',', ');
