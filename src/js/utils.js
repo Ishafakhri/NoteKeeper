@@ -23,7 +23,11 @@ const addEventOnElements = function ($elements, eventType, callback) {
  * @returns {string}
  */
 const getGreetingMsg = function (currentHour) {
-    console.log("🚀 ~ getGreetingMsg ~ currentHour:", currentHour);
+    const /** {string} */ greeting = currentHour < 12 ? 'Good Morning' : 
+    currentHour < 18 ? 'Good Afternoon' 
+    : 'Good Evening';
+
+    return  greeting;
 }
 
 export{
