@@ -6,8 +6,12 @@
 
 /**
  * Import
- */
+*/
 import { Tooltip } from "./Tooltip.js";
+import { activeNotebook } from "../utils.js";
+
+const /** {HTMLElement} */ $notePanelTitle = document.querySelector('[data-note-panel-title]');
+
 /**
  * 
  * @param {string} id 
@@ -35,6 +39,11 @@ export const NavItem = function (id, name) {
     // show tooltip on edit and delete button
     const /** {Array<HTMLElement>} */ $tooltipElems = $navItem.querySelectorAll('[data-tooltip]');
     $tooltipElems.forEach($elem => Tooltip($elem));
+
+    $navItem.addEventListener('click', function(){
+        $notePanelTitle.textContent = name;
+        activeNotebook.call(this);
+    });
 
     return $navItem;
 }
