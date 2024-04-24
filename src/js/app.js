@@ -31,9 +31,6 @@ addEventOnElements($sidebarTogglers, 'click', function () {
 const /** {Array<HTMLElement>} */ $tooltips = document.querySelectorAll('[data-tooltip]');
 $tooltips.forEach($elem => Tooltip($elem));
 
-
-
-
 /**
  * Show greeting message
  */
