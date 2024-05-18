@@ -17,7 +17,7 @@ const DeleteConfirmModal = function (title) {
     const /** {HTMLElement} */ $modal = document.createElement('div');
     $modal.classList.add('modal');
     $modal.innerHTML = `
-    
+    <div class="modal">
       <h3 class="modal-title text-title-medium">
         Are you sure want to delete this <strong>"${title}"</strong>?
       </h3>
@@ -31,7 +31,7 @@ const DeleteConfirmModal = function (title) {
           <div class="state-layer"></div>
         </button>
       </div>
-
+    </div>
     `;
 
     /**

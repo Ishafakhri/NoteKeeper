@@ -8,7 +8,7 @@
 /**
  * Import Module
  */
-import { generateID, findNotebook } from "./utils.js";
+import { generateID, findNotebook, findNotebookIndex } from "./utils.js";
 
 
 //DB Object
@@ -99,6 +99,22 @@ export const db = {
             return notebook;
             
         }
+    },
+
+    delete: {
+
+        /**
+         * @function
+         * @param {string} notebookId 
+         */
+        notebook(notebookId) {
+            readDB();
+
+            const /**{Number} */ notebookIndex = findNotebookIndex(notekeeperDB, notebookId);
+            console.log(notebookIndex);
+
+            writeDB();
+        }    
     }
     
 };

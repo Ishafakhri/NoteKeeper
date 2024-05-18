@@ -65,6 +65,15 @@ const findNotebook = function (db, notebookId) {
 }
 
 
+/**
+ * 
+ * @param {Object} db 
+ * @param {string} notebookId
+ * @returns {number} 
+ */
+const findNotebookIndex = function (db, notebookId) { 
+    return db.notebooks.findIndex(item => item.id === notebookId);
+}
 
 export{
     addEventOnElements,
@@ -72,5 +81,6 @@ export{
     activeNotebook,
     makeElemEditable,
     generateID,
-    findNotebook
+    findNotebook,
+    findNotebookIndex
 }
