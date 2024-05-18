@@ -53,10 +53,24 @@ const generateID = function () {
     return new Date().getTime().toString();
 }
 
+/**
+ * 
+ * @param {Object} db 
+ * @param {string} notebookId 
+ * @returns {Object | undefined}
+ */
+
+const findNotebook = function (db, notebookId) { 
+    return db.notebooks.find(notebook => notebook.id === notebookId);
+}
+
+
+
 export{
     addEventOnElements,
     getGreetingMsg,
     activeNotebook,
     makeElemEditable,
-    generateID
+    generateID,
+    findNotebook
 }

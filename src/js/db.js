@@ -8,7 +8,8 @@
 /**
  * Import Module
  */
-import { generateID } from "./utils.js";
+import { generateID, findNotebook } from "./utils.js";
+
 
 //DB Object
 let /** {Object} */ notekeeperDB = {};
@@ -79,5 +80,23 @@ export const db = {
         }
     },
     
+    update: {
+        
+        /**
+         * @function
+         * @param {string} notebookId 
+         * @param {string} name
+         * @returns {Object} 
+         */
+
+
+        notebook(notebookId, name){
+            readDB();
+            const /** {Object} */ notebook = findNotebook();
+            notebook.name = name;
+            writeDB();
+            
+        }
+    }
     
 };

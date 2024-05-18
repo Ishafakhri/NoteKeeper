@@ -8,7 +8,7 @@
  * Import
 */
 import { Tooltip } from "./Tooltip.js";
-import { activeNotebook } from "../utils.js";
+import { activeNotebook, makeElemEditable } from "../utils.js";
 
 const /** {HTMLElement} */ $notePanelTitle = document.querySelector('[data-note-panel-title]');
 
@@ -45,5 +45,22 @@ export const NavItem = function (id, name) {
         activeNotebook.call(this);
     });
 
-    return $navItem;
+/**
+ * Notebook Edit Functionality
+ */
+  const /** {HTMLElement} */ $navItemEditBtn = $navItem.querySelector('[edit-data-btn]');
+  const /** {HTMLElement} */ $navItemField = $navItem.querySelector('[data-notebook-field]');
+
+  $navItemEditBtn.addEventListener('click', makeElemEditable.bind(null, $navItemField));
+  
+  $navItemField.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      this.removeAttribute('contenteditable');
+
+      //update edited data in database
+      
+    }
+  });
+
+  return $navItem;
 }

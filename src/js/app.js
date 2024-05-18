@@ -11,6 +11,7 @@ import { addEventOnElements,getGreetingMsg, activeNotebook, makeElemEditable } f
 import { Tooltip } from "./components/Tooltip.js";
 import { db } from "./db.js";
 import { client } from "./client.js";
+
 /**
  * Toggle sidebar
  */
