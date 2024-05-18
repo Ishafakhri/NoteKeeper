@@ -17,7 +17,6 @@ const DeleteConfirmModal = function (title) {
     const /** {HTMLElement} */ $modal = document.createElement('div');
     $modal.classList.add('modal');
     $modal.innerHTML = `
-    <div class="modal">
       <h3 class="modal-title text-title-medium">
         Are you sure want to delete this <strong>"${title}"</strong>?
       </h3>
@@ -31,7 +30,6 @@ const DeleteConfirmModal = function (title) {
           <div class="state-layer"></div>
         </button>
       </div>
-    </div>
     `;
 
     /**
@@ -46,8 +44,8 @@ const DeleteConfirmModal = function (title) {
      * closes the delete confirmation modal by removing it from the body
      */
     const close = function () {
-        document.body.appendChild($modal);
-        document.body.appendChild($overlay);
+        document.body.removeChild($modal);
+        document.body.removeChild($overlay);
     }
 
     const /** {Array<HTMLElement></HTMLElement>}*/ $actionButton =
