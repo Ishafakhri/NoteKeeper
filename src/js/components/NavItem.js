@@ -78,14 +78,13 @@ export const NavItem = function (id, name) {
     modal.open();
 
     modal.onSubmit(function (isDelete) { 
-  if(isDelete){
-    //delete notebook from database
-    db.delete.notebook(id);
-
-    // Close the modal after successful deletion
-    modal.close();
-  }
-});
+      if(isDelete){
+        //delete notebook from database
+        db.delete.notebook(id);
+        client.notebook.delete(id);
+      }
+      modal.close();
+    });
   });
 
   return $navItem;

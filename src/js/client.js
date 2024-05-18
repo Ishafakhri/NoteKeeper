@@ -13,6 +13,8 @@ import { activeNotebook } from "./utils.js";
 const /** {HTMLElement} */ $sidebarList = document.querySelector('[data-sidebar-list]');
 
 const /** {HTMLElement} */ $notePanelTitle = document.querySelector('[data-note-panel-title]');
+
+const /** {HTMLElement} */ $notePanel = document.querySelector('[data-note-panel]');
 /**
  * @namespace
  * @property {Object} notebook
@@ -55,6 +57,24 @@ export const client = {
             $notePanelTitle.textContent = notebookData.name;
             $sidebarList.replaceChild($newNotebook, $oldNotebook);
             activeNotebook.call($newNotebook);
+        },
+
+        /**
+         * 
+         * @param {string} notebookId 
+         */
+        delete(notebookId) {
+            const /** {HTMLElement} */ $deletedNotebook = document.querySelector(`[data-notebook="${notebookId}"]`);
+
+            const /** {HTMLElement | null} */ $ActiveNavItem = $deletedNotebook.nextElementSibling ?? $deletedNotebook.previousElementSibling;
+            if($ActiveNavItem){
+                $ActiveNavItem.click();
+            } else {
+                $notePanelTitle.innerHTML = '';
+                // $notePanel.innerHTML = '';
+            }
+            
+            $deletedNotebook.remove();
         }
 }
 }
