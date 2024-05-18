@@ -92,9 +92,11 @@ export const db = {
 
         notebook(notebookId, name){
             readDB();
-            const /** {Object} */ notebook = findNotebook();
+            const /** {Object} */ notebook = findNotebook(notekeeperDB, notebookId);
             notebook.name = name;
             writeDB();
+
+            return notebook;
             
         }
     }
