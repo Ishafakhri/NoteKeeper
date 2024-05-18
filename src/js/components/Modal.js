@@ -7,6 +7,58 @@
 const /** {HTMLElement} */ $overlay = document.createElement('div');
 $overlay.classList.add('overlay', 'modal-overlay');
 
+
+
+/**
+ * 
+ * @param {string} [title = 'Untitled'] 
+ * @param {string} [text = 'Add your Note...'] 
+ * @param {string} [time = '']
+ * @returns {Object} 
+ */
+const NoteModal = function (title = 'Untitled', text = 'Add your Note...', time = '') { 
+  const /**{HTMLElement} */ $modal = document.createElement('div');
+  $modal.classList.add('modal');
+
+  $modal.innerHTML = `
+   <button class="icon-btn large" aria-label="Close modal">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        <div class="state-layer"></div>
+      </button>
+
+      <input type="text" placeholder="Untitled" value="${title}"
+      class="modal-title text-title-medium" data-note-field>
+      <textarea placeholder="Take a note..." class="modal-text text-body-large custom-scrollbar" data-note-field>${text}</textarea>
+      
+      <div class="modal-footer">
+        <span class="time text-label-large">${time}</span>
+        <button class="btn fill" data-submit-btn>
+          <span class="text-label-large">Save</span>
+          <div class="state-layer"></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay modal-overlay" data-modal-overlay>
+    </div>
+
+    <div class="modal">
+      <h3 class="modal-title text-title-medium">
+        Are you sure want to delete this <strong>"Note title"</strong>?
+      </h3>
+      <div class="modal-footer">
+        <button class="btn text">
+          <span class="text-label-large">Cancel</span>
+          <div class="state-layer"></div>
+        </button>
+        <button class="btn fill">
+          <span class="text-label-large">Delete</span>
+          <div class="state-layer"></div>
+        </button>
+      </div>
+  `;
+}
+
 /**
  * 
  * @param {string} title

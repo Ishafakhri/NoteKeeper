@@ -95,3 +95,10 @@ const renderExisted = function () {
 }
 
 renderExisted();
+
+const /** {Array<HTMLElement></HTMLElement>} */ $noteCreateBtn = document.querySelectorAll('[data-note-create-btn]');
+
+addEventOnElements($noteCreateBtn, 'click', function () {
+    const /** {HTMLElement} */ $modal = NoteModal();
+   
+});
