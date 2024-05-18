@@ -11,6 +11,7 @@ import { addEventOnElements,getGreetingMsg, activeNotebook, makeElemEditable } f
 import { Tooltip } from "./components/Tooltip.js";
 import { db } from "./db.js";
 import { client } from "./client.js";
+import { NoteModal } from "./components/Modal.js";
 
 /**
  * Toggle sidebar
@@ -99,6 +100,6 @@ renderExisted();
 const /** {Array<HTMLElement></HTMLElement>} */ $noteCreateBtn = document.querySelectorAll('[data-note-create-btn]');
 
 addEventOnElements($noteCreateBtn, 'click', function () {
-    const /** {HTMLElement} */ $modal = NoteModal();
-   
+    const /** {HTMLElement} */ modal = NoteModal();
+    modal.open()
 });

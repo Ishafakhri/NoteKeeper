@@ -38,24 +38,6 @@ const NoteModal = function (title = 'Untitled', text = 'Add your Note...', time 
         </button>
       </div>
     </div>
-
-    <div class="overlay modal-overlay" data-modal-overlay>
-    </div>
-
-    <div class="modal">
-      <h3 class="modal-title text-title-medium">
-        Are you sure want to delete this <strong>"Note title"</strong>?
-      </h3>
-      <div class="modal-footer">
-        <button class="btn text">
-          <span class="text-label-large">Cancel</span>
-          <div class="state-layer"></div>
-        </button>
-        <button class="btn fill">
-          <span class="text-label-large">Delete</span>
-          <div class="state-layer"></div>
-        </button>
-      </div>
   `;
 
   const /** {HTMLElement} */ [$titleField, $textField ] = $modal.querySelectorAll('[data-note-field]');
@@ -128,4 +110,4 @@ const DeleteConfirmModal = function (title) {
 
     return {open, close, onSubmit};
 }
-export { DeleteConfirmModal, open }; 
+export { DeleteConfirmModal, NoteModal }; 
