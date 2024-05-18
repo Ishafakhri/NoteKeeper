@@ -57,6 +57,16 @@ const NoteModal = function (title = 'Untitled', text = 'Add your Note...', time 
         </button>
       </div>
   `;
+
+  const /** {HTMLElement} */ [$titleField, $textField ] = $modal.querySelectorAll('[data-note-field]');
+  
+  const open = function () { 
+    document.body.appendChild($modal);
+    document.body.appendChild($overlay);
+    $titleField.focus();
+  }
+
+  return {open};
 }
 
 /**
@@ -118,4 +128,4 @@ const DeleteConfirmModal = function (title) {
 
     return {open, close, onSubmit};
 }
-export { DeleteConfirmModal };
+export { DeleteConfirmModal, open }; 
