@@ -101,5 +101,13 @@ const /** {Array<HTMLElement></HTMLElement>} */ $noteCreateBtn = document.queryS
 
 addEventOnElements($noteCreateBtn, 'click', function () {
     const /** {HTMLElement} */ modal = NoteModal();
-    modal.open()
+    modal.open();
+
+    modal.onSubmit(noteObj => { 
+        const /**{string} */ activeNotebookId = document.querySelector('[data-notebook].active').dataset.notebook;
+        
+        const /** {Object} */ noteData = db.post.note(activeNotebookId, noteObj);
+        client.note.create(noteData);
+        modal.close();
+    })
 });
