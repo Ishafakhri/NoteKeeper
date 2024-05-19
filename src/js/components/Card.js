@@ -8,6 +8,11 @@
  * @returns {HTMLElement} 
  */
 export const Card = function (noteData) { 
+    if (!noteData) {
+        console.error('Note data is required');
+        return;
+    };
+    
     const { id, title, text, postedOn, notebookId } = noteData;
 
     const /**{HTMLElement} */ $card = document.createElement('div');
