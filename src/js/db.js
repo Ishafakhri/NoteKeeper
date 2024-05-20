@@ -86,6 +86,7 @@ export const db = {
             }
             notebook.notes.unshift(noteData);
             writeDB();
+            return noteData;
         }
 
 

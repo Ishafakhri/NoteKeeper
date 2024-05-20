@@ -1,20 +1,19 @@
 
 
 'use strict';
-
+import { Tooltip } from "./Tooltip.js";
 /**
  * 
  * @param {Object} noteData
  * @returns {HTMLElement} 
  */
 export const Card = function (noteData) { 
-    if (!noteData) {
-        console.error('Note data is required');
-        return;
-    };
-    
+  if (!noteData) {
+    console.error('Note data is required');
+    return document.createElement('div');
+    }
     const { id, title, text, postedOn, notebookId } = noteData;
-
+    
     const /**{HTMLElement} */ $card = document.createElement('div');
     $card.classList.add('card');
     $card.setAttribute('data-note', id);
@@ -31,5 +30,6 @@ export const Card = function (noteData) {
         </div>
         <div class="state-layer"></div>
     `;
+
     return $card;
 }

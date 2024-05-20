@@ -9,7 +9,7 @@
  */
 import { NavItem } from "./components/NavItem.js";
 import { activeNotebook } from "./utils.js";
-import {Card} from "./components/Card.js";
+import { Card } from "./components/Card.js";
 
 const /** {HTMLElement} */ $sidebarList = document.querySelector('[data-sidebar-list]');
 
