@@ -8,7 +8,7 @@
 /**
  * Import Module
  */
-import { generateID, findNotebook, findNotebookIndex } from "./utils.js";
+import { generateID, findNotebook, findNotebookIndex, findNote, findNoteIndex } from "./utils.js";
 
 
 //DB Object
@@ -100,7 +100,13 @@ export const db = {
         notebooks(){
             readDB();
             return notekeeperDB.notebooks;
-        }
+        },
+
+        note(notebookId) {
+            readDB();
+            const /**{Object} */ notebook = findNotebook(notekeeperDB, notebookId);
+            return notebook.notes;
+        }        
     },
     
     update: {
@@ -121,6 +127,14 @@ export const db = {
 
             return notebook;
             
+        },
+        note(noteId, object) {
+            readDB();
+            const /**{Object} */ oldNote = findNote(notekeeperDB, noteId);
+            const /**{Object} */ newNote = Object.assign(oldNote, object);
+            writeDB();
+
+            return newNote;
         }
     },
 
@@ -137,7 +151,26 @@ export const db = {
             notekeeperDB.notebooks.splice(notebookIndex, 1);
 
             writeDB();
-        }    
+        },
+
+        /**
+         * @function
+         * @param {string} notebookId 
+         * @param {string} noteId 
+         * @returns {Array<Object>}
+         */
+        note(notebookId, noteId) {
+            readDB();
+
+            const /**{Object} */ notebook = findNotebook(notekeeperDB, notebookId);
+            const /**{number} */ noteIndex = findNoteIndex(notebook, noteId);
+
+            notebook.notes.splice(noteIndex, 1);
+
+            writeDB();
+
+            return notebook.notes;
+        }
     }
     
 };

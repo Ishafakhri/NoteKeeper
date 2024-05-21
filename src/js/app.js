@@ -111,3 +111,19 @@ addEventOnElements($noteCreateBtn, 'click', function () {
         modal.close();
     })
 });
+
+const renderExistedNote = function () {
+    const /**{string | undefined} */ activeNotebookId = document.querySelector('[data-notebook].active')?.dataset.notebook;
+
+    if (activeNotebookId) {
+        const /**{Array<Object>} */ noteList = db.get.note(activeNotebookId);
+        
+
+        //Display existing notes
+        client.note.read(noteList);
+        
+
+    }
+}
+
+renderExistedNote();
