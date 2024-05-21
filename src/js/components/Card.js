@@ -2,6 +2,7 @@
 
 'use strict';
 import { Tooltip } from "./Tooltip.js";
+import { getRelativeTime } from "../utils.js";
 /**
  * 
  * @param {Object} noteData
@@ -22,7 +23,7 @@ export const Card = function (noteData) {
         <h3 class="card-title text-title-medium">${title}</h3>
         <p class="card-text text-body-large">${text}</p>
         <div class="wrapper">
-          <span class="card-time text-label-large">${postedOn}</span>
+          <span class="card-time text-label-large">${getRelativeTime(postedOn)}</span>
           <button class="icon-btn large" aria-label="Delete note" data-tooltip="Delete note">
             <span class="material-symbols-rounded" aria-hidden="true">delete</span>
             <div class="state-layer"></div>
@@ -31,5 +32,7 @@ export const Card = function (noteData) {
         <div class="state-layer"></div>
     `;
 
+    Tooltip($card.querySelector('[data-tooltip]'));
+  
     return $card;
 }

@@ -75,6 +75,24 @@ const findNotebookIndex = function (db, notebookId) {
     return db.notebooks.findIndex(item => item.id === notebookId);
 }
 
+/**
+ * 
+ * @param {number} miliseconds 
+ * @returns {string}
+ */
+const getRelativeTime = function (miliseconds) {
+    const /** {Number} */currenttTime = new Date().getTime();
+
+    const /** {Number} */ minute = Math.floor((currenttTime - miliseconds) / 1000 / 60);
+
+    const /** {Number} */ hour = Math.floor(minute / 60);
+
+    const /** {Number} */ day = Math.floor(hour / 24);
+
+    return minute < 1 ? 'Just Now' : minute < 60 ? `${minute} min ago` :
+           hour < 24 ? `${hour} hour ago` : `${day} day ago`;
+}
+
 export{
     addEventOnElements,
     getGreetingMsg,
@@ -82,5 +100,6 @@ export{
     makeElemEditable,
     generateID,
     findNotebook,
-    findNotebookIndex
+    findNotebookIndex,
+    getRelativeTime
 }
